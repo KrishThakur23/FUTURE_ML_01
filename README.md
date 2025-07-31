@@ -45,7 +45,11 @@ This will:
 - Save all results as CSV files
 - Create analysis files for categories and regions
 
-3. **View the dashboard**: run python -m http.server 8000 on terminal then open localhost:8000
+3. **View the dashboard**: 
+```bash
+python -m http.server 8000
+```
+This will start the server and then open localhost:8000 to access the dashboard
 
 ## What You'll Get
 
