@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Sales Forecasting Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="header-title">
+                    <h1>AI-Powered Sales Forecasting Dashboard</h1>
+                    <p class="header-subtitle">Superstore Sales Analytics & 90-Day Predictions</p>
+                </div>
+                <div class="header-meta">
+                    <div class="header-date">
+                        <span class="date-label">Last Updated:</span>
+                        <span id="current-date"></span>
+                    </div>
+                    <div class="accuracy-badge">
+                        <span class="accuracy-icon">🎯</span>
+                        <span>Model Accuracy: 92%</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- KPI Cards Section -->
+        <section class="kpi-section">
+            <div class="container">
+                <div class="kpi-grid">
+                    <div class="kpi-card" data-kpi="total-sales">
+                        <div class="kpi-icon">💰</div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">$3.23M</div>
+                            <div class="kpi-label">Total Historical Sales</div>
+                            <div class="kpi-change">+8.2% vs last period</div>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card" data-kpi="avg-daily">
+                        <div class="kpi-icon">📊</div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">$1,236</div>
+                            <div class="kpi-label">Average Daily Sales</div>
+                            <div class="kpi-change">+3.1% trend</div>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card" data-kpi="forecast">
+                        <div class="kpi-icon">🔮</div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">$125K</div>
+                            <div class="kpi-label">Total Forecast (90 days)</div>
+                            <div class="kpi-change">Q1 2025 projection</div>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card" data-kpi="accuracy">
+                        <div class="kpi-icon">🎯</div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">92%</div>
+                            <div class="kpi-label">Model Accuracy Indicator</div>
+                            <div class="kpi-change">MAPE score</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Charts Section -->
+        <section class="charts-section">
+            <div class="container">
+                <div class="charts-grid">
+                    <!-- Daily Sales Forecast Chart -->
+                    <div class="chart-card main-chart">
+                        <div class="chart-header">
+                            <h3>Daily Sales Forecast - Historical vs Predicted</h3>
+                            <div class="chart-controls">
+                                <button class="btn btn--secondary" id="download-forecast">
+                                    <span>📥</span> Download
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-content">
+                            <div class="chart-image-container">
+                                <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/08914a9a4f080294ddcfb29ce1942b09/ada3727c-b6cb-48e9-a709-15487e6f8fd9/789de56a.png" 
+                                     alt="Daily Sales Forecast showing historical trends vs 90-day predictions with confidence intervals" 
+                                     class="chart-image"
+                                     onload="this.style.opacity=1"
+                                     onerror="this.parentElement.innerHTML='<div class=chart-error>Chart temporarily unavailable</div>'">
+                            </div>
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <div class="legend-color historical"></div>
+                                <span>Historical Data</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color forecast"></div>
+                                <span>AI Forecast</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color confidence"></div>
+                                <span>Confidence Interval</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Monthly Forecast Chart -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Monthly Sales Forecast</h3>
+                            <div class="forecast-period">
+                                <span class="period-badge">Q1 2025</span>
+                            </div>
+                        </div>
+                        <div class="chart-content">
+                            <div class="chart-image-container">
+                                <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/08914a9a4f080294ddcfb29ce1942b09/aef534f2-ae43-422e-b49e-4a3a3c28a5dd/b56ba7d2.png" 
+                                     alt="Monthly sales forecast bar chart showing predicted average daily sales for the next quarter" 
+                                     class="chart-image"
+                                     onload="this.style.opacity=1"
+                                     onerror="this.parentElement.innerHTML='<div class=chart-error>Chart temporarily unavailable</div>'">
+                            </div>
+                        </div>
+                        <div class="monthly-insights">
+                            <div class="insight-item">
+                                <span class="month">Jan</span>
+                                <span class="value">$1,331</span>
+                                <span class="trend positive">↗</span>
+                            </div>
+                            <div class="insight-item">
+                                <span class="month">Feb</span>
+                                <span class="value">$1,255</span>
+                                <span class="trend negative">↘</span>
+                            </div>
+                            <div class="insight-item">
+                                <span class="month">Mar</span>
+                                <span class="value">$1,553</span>
+                                <span class="trend positive">↗</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analysis Section -->
+        <section class="analysis-section">
+            <div class="container">
+                <div class="analysis-grid">
+                    <!-- Category Distribution Chart -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Sales Distribution by Category</h3>
+                            <div class="category-summary">
+                                <span>3 Categories</span>
+                            </div>
+                        </div>
+                        <div class="chart-content">
+                            <div class="chart-image-container">
+                                <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/08914a9a4f080294ddcfb29ce1942b09/5e6f23aa-d413-4128-86fe-b4a12db76d1a/1309e953.png" 
+                                     alt="Pie chart showing sales distribution across product categories with percentages and values" 
+                                     class="chart-image"
+                                     onload="this.style.opacity=1"
+                                     onerror="this.parentElement.innerHTML='<div class=chart-error>Chart temporarily unavailable</div>'">
+                            </div>
+                        </div>
+                        <div class="category-breakdown">
+                            <div class="category-item">
+                                <div class="category-color furniture"></div>
+                                <div class="category-info">
+                                    <span class="category-name">Furniture</span>
+                                    <span class="category-value">$1.01M</span>
+                                    <span class="category-margin">10.2% margin</span>
+                                </div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-color office"></div>
+                                <div class="category-info">
+                                    <span class="category-name">Office Supplies</span>
+                                    <span class="category-value">$1.12M</span>
+                                    <span class="category-margin">10.3% margin</span>
+                                </div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-color technology"></div>
+                                <div class="category-info">
+                                    <span class="category-name">Technology</span>
+                                    <span class="category-value">$1.09M</span>
+                                    <span class="category-margin">10.5% margin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Business Insights Panel -->
+                    <div class="insights-panel">
+                        <div class="panel-header">
+                            <h3>Key Business Insights & Recommendations</h3>
+                            <div class="confidence-indicator">
+                                <span class="confidence-badge high">High Confidence</span>
+                            </div>
+                        </div>
+                        
+                        <div class="insights-content">
+                            <div class="insights-list">
+                                <h4>📊 Key Findings</h4>
+                                <ul id="insights-list"></ul>
+                            </div>
+                            
+                            <div class="recommendations-list">
+                                <h4>💡 Business Recommendations</h4>
+                                <ul id="recommendations-list"></ul>
+                            </div>
+                            
+                            <div class="risk-assessment">
+                                <h4>⚠️ Risk Factors</h4>
+                                <div class="risk-indicators">
+                                    <div class="risk-item low">
+                                        <span class="risk-level">Low Risk</span>
+                                        <span class="risk-description">Technology & Office Supplies</span>
+                                    </div>
+                                    <div class="risk-item medium">
+                                        <span class="risk-level">Medium Risk</span>
+                                        <span class="risk-description">Seasonal variations in Q1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-info">
+                        <p>Powered by Advanced AI Forecasting Models | Data Source: Superstore Dataset</p>
+                        <p class="disclaimer">Forecasts are based on historical patterns and may vary due to market conditions</p>
+                    </div>
+                    <div class="footer-actions">
+                        <button class="btn btn--outline" id="refresh-data">
+                            <span>🔄</span> Refresh Data
+                        </button>
+                        <button class="btn btn--primary" id="export-report">
+                            <span>📋</span> Export Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
